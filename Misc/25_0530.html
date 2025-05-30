@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en-US"></html>
+<head>
+    <title>MCP Pdu Pathway </title>
+    <link rel="stylesheet" href="../css/main.css" />
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js">
+        </script>
+        
+</head>
+
+<a href="\misc.html">(Back)</a>
+<!-- Heading -->
+<h1>
+    Multiscale
+</h1>
+
+<p >
+Equation
+\begin{align*}
+    \dot{x} &= f(x,y)
+    \\\dot{y} &= \frac{1}{\epsilon} g(x,y)
+\end{align*}
+Perturb
+\begin{align*}
+    y&: \eta_0(x)\to \eta_0(x)+\epsilon\eta_1(x)
+    \\\dot{y}&\to \dot{\eta_0}(x) + \epsilon\dot{\eta_1}(x)
+    \\&\sim \partial_x \eta_0\cdot \dot{x}
+    \\&\sim \partial_x \eta_0\cdot f(x,\eta_0)
+    \\\frac{1}{\epsilon} g(x,y)&\to \frac{1}{\epsilon} g(x,\eta_0+\epsilon\eta_1)
+    \\&\sim \frac{1}{\epsilon}(g(x,\eta_0) + \epsilon\eta_1\cdot \partial_y g(x,\eta_0))
+    \\&= \eta_1 \cdot \partial_y g(x,\eta_0)
+\end{align*}
+Equating both sides
+\begin{align*}
+    \partial_x \eta_0\cdot f(x,\eta_0) &= \eta_1 \cdot \partial_y g(x,\eta_0)
+    \\\Rightarrow \eta_1 &= (\partial_y g(x,\eta_0))^{-1} \partial_x \eta_0\cdot f(x,\eta_0)
+\end{align*}
+Reduced approximation
+\begin{align*}
+    \dot{X} &= f(x,\eta_0) + \epsilon\eta_1\cdot \partial_y f(x,\eta_0)
+    \\&= f(x,\eta_0) + \epsilon(\partial_y g)^{-1} \partial_x \eta_0\cdot f(x,\eta_0)\cdot \partial_y f
+\end{align*}
+Interpretation: \(\dot{y} \sim \partial_x\eta_0\cdot \dot{x}\), \(\dot{y}\sim \eta_1\cdot \partial_y g\)
+</p>
+
+
+
+
+</html>
